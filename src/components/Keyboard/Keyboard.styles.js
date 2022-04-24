@@ -6,17 +6,17 @@ console.log('screenWidth:', screenWidth)
 
 function getAdjustment() {
   if (screenWidth <= 700) {
-    const adjustment = 100
+    const adjustment = screenWidth/8
     console.log('small screen adjustment:', adjustment)
     return adjustment
   } 
   if (screenWidth > 700 && screenWidth <= 1200) {
-    const adjustment = 400
+    const adjustment = screenWidth/3
     console.log('medium screen adjustment:', adjustment)
     return adjustment
   } 
   if (screenWidth > 1200) {
-    const adjustment = 800
+    const adjustment = screenWidth/2
     console.log('large screen adjustment:', adjustment)
     return adjustment
   }
