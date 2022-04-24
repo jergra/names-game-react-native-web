@@ -53,7 +53,7 @@ export default function App() {
     const row = rows[currentRow - 1].join('')
     //console.log('row in checkIfValid:', row)
     if (!VALID_NAMES.includes(row)) {
-      console.log(row, 'is not a valid name')
+      //console.log(row, 'is not a valid name')
       setWord(row)
       rows.splice(currentRow - 1, 1, Array(letters.length).fill('') )
       setRows(rows)
@@ -65,7 +65,7 @@ export default function App() {
       return
       
     } else {
-      console.log(row, 'is a valid name')
+      //console.log(row, 'is a valid name')
       setCurrentCol(0)
       checkGameState()
       return

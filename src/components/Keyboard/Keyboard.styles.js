@@ -2,8 +2,29 @@ import { StyleSheet, Dimensions } from "react-native";
 import { keys, colors } from "../../constants";
 
 const screenWidth = Dimensions.get("window").width;
-export const keyWidth = (screenWidth - 10) / keys[0].length;
-const keyHeight = keyWidth * 1.3;
+console.log('screenWidth:', screenWidth)
+
+function getAdjustment() {
+  if (screenWidth <= 700) {
+    const adjustment = 100
+    console.log('small screen adjustment:', adjustment)
+    return adjustment
+  } 
+  if (screenWidth > 700 && screenWidth <= 1200) {
+    const adjustment = 400
+    console.log('medium screen adjustment:', adjustment)
+    return adjustment
+  } 
+  if (screenWidth > 1200) {
+    const adjustment = 800
+    console.log('large screen adjustment:', adjustment)
+    return adjustment
+  }
+}
+
+export const keyWidth = (screenWidth - getAdjustment()) / keys[0].length
+//const keyHeight = keyWidth * 1.3;
+const keyHeight = keyWidth * 1.0;
 
 export default StyleSheet.create({
   keyboard: {
@@ -17,10 +38,10 @@ export default StyleSheet.create({
     justifyContent: "center",
   },
   key: {
-    //width: keyWidth - 4,
-    width: 60,
-    //height: keyHeight - 4,
-    height: 60,
+    width: keyWidth - 4,
+    //width: 60,
+    height: keyHeight - 4,
+    //height: 60,
     margin: 2,
     borderRadius: 5,
     backgroundColor: colors.grey,
