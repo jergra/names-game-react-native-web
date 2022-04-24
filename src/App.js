@@ -284,7 +284,7 @@ export default function App() {
                 style={[styles.button, styles.buttonClose]}
                 onPress={() => setAlertVisible(!alertVisible)}
               >
-                <Text style={styles.textStyle}>ok</Text>
+                <Text style={styles.textStyle}>OK</Text>
               </Pressable>
             </View>
           </View>

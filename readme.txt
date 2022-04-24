@@ -23,6 +23,7 @@ start:
 
 deployed:
     
+    https://names-game-react-native-web.vercel.app/
     
     the smartphone-app version:
         Use the Expo Go app to read the QR code at:
