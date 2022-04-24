@@ -1,0 +1,33 @@
+April 23, 2022
+
+C:\dev\names-game-react-native-web
+
+React native wordle-type game from tutorial:
+    WORDLE with React Native
+    https://www.youtube.com/watch?v=2SpbSIPiDM0&list=PLY3ncAV1dSVCOmzOVNMCgh0fnAh81xueX&index=18
+
+    by notJust.dev
+
+We are guessing names instead of words.
+
+I have adjusted the smartphone-app code from 
+    C:\dev\names-game-react-native
+    https://github.com/jergra/names-game-react-native
+
+so that it now works as a website.
+
+
+start:
+    npm start
+
+deployed:
+    
+    
+    the smartphone-app version:
+        Use the Expo Go app to read the QR code at:
+        https://expo.dev/@jergra43/names-game-react-native
+
+update:
+    git add .
+    git commit -m "message"
+    git push
