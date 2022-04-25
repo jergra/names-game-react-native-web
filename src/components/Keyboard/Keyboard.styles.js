@@ -2,22 +2,22 @@ import { StyleSheet, Dimensions } from "react-native";
 import { keys, colors } from "../../constants";
 
 const screenWidth = Dimensions.get("window").width;
-console.log('screenWidth:', screenWidth)
+//console.log('screenWidth:', screenWidth)
 
 function getAdjustment() {
   if (screenWidth <= 700) {
     const adjustment = screenWidth/8
-    console.log('small screen adjustment:', adjustment)
+    //console.log('small screen adjustment:', adjustment)
     return adjustment
   } 
   if (screenWidth > 700 && screenWidth <= 1200) {
     const adjustment = screenWidth/3
-    console.log('medium screen adjustment:', adjustment)
+    //console.log('medium screen adjustment:', adjustment)
     return adjustment
   } 
   if (screenWidth > 1200) {
     const adjustment = screenWidth/2
-    console.log('large screen adjustment:', adjustment)
+    //console.log('large screen adjustment:', adjustment)
     return adjustment
   }
 }
