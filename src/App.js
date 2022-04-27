@@ -279,21 +279,6 @@ export default function App() {
           greyCaps={greyCaps} 
         />
         <View style={styles.centeredView}>
-       {/* <Modal
-          animationType="none"
-          transparent={true}
-          visible={modalVisible}
-          // onRequestClose={() => {
-          //   Alert.alert("Modal has been closed.");
-          //   setModalVisible(!modalVisible);
-          // }}
-        >
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}></Text>
-            </View>
-          </View>
-        </Modal> */}
 
         <Modal
           animationType="none"
@@ -396,7 +381,7 @@ const styles = StyleSheet.create({
     //backgroundColor: 'blue',
     width: 'full',
     height: 'full',
-    marginTop: -1000
+    marginTop: -960
   },
   container: {
     flex: 1,
@@ -418,7 +403,7 @@ const styles = StyleSheet.create({
     fontSize: 45,
     fontWeight: 'bold',
     letterSpacing: 7,
-    marginTop: 40,
+    paddingTop: 40,
     marginBottom: 80
   },
   
