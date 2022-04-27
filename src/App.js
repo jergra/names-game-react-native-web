@@ -373,16 +373,6 @@ export default function App() {
   );
 }
 
-const screenWidth = Dimensions.get("window").width;
-
-function getMarginTop() {
-  if (screenWidth < 700) {
-    return -600
-  } 
-  return 0
-}
-
-
 const styles = StyleSheet.create({
   box: {
     flex: 1,
@@ -411,7 +401,8 @@ const styles = StyleSheet.create({
     fontSize: 45,
     fontWeight: 'bold',
     letterSpacing: 7,
-    marginTop: 40
+    marginTop: 40,
+    marginBottom: 80
   },
   
   map: {
@@ -494,7 +485,6 @@ const styles = StyleSheet.create({
   alertView: {
     width: 500,
     height: 200,
-    marginTop: getMarginTop(),
     backgroundColor: colors.lightgrey,
     borderRadius: 20,
     padding: 35,
