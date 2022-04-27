@@ -36,7 +36,7 @@ const Keyboard = ({
               key={key}
               style={[
                 styles.key,
-                isLongButton(key) ? { width: keyWidth * 2.1 } : {},
+                isLongButton(key) ? { width: keyWidth * 2.0 } : {},
                 { backgroundColor: getKeyBGColor(key) },
               ]}
             >
