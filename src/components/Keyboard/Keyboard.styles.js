@@ -51,6 +51,6 @@ export default StyleSheet.create({
   keyText: {
     color: colors.lightgrey,
     fontWeight: "bold",
-    fontSize: 25
+    fontSize: 23
   },
 });
