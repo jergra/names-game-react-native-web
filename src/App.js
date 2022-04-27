@@ -378,7 +378,7 @@ const screenWidth = Dimensions.get("window").width;
 
 function getMarginTop() {
     if (screenWidth < 700) {
-        return -1500
+        return -2000
     }
     return 0
 }  
