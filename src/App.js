@@ -378,9 +378,16 @@ const screenWidth = Dimensions.get("window").width;
 
 function getMarginTop() {
     if (screenWidth < 700) {
-        return -500
+        return -1500
     }
     return 0
+}  
+
+function getMarginLeft() {
+  if (screenWidth < 700) {
+      return -1000
+  }
+  return 0
 }  
 
 const styles = StyleSheet.create({
@@ -494,6 +501,7 @@ const styles = StyleSheet.create({
 
   alertView: {
     marginTop: getMarginTop(),
+    marginLeft: getMarginLeft(),
     width: 500,
     height: 200,
     backgroundColor: colors.lightgrey,
