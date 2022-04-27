@@ -17,10 +17,9 @@ I have adjusted the mobile-app code from:
     
 so that it now works as a website.
 
-If the aim is to use react-native-web to have a website,
-it would be simpler and better to build, with that aim,
-from scratch, rather than adjust an already built mobile
-app, as we did here.
+In retrospect, if the aim is to use react-native-web to have a website,
+it would be simpler and better to build it from scratch, 
+rather than adjust an already built mobile app.
 
 
 start:

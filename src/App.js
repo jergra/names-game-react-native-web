@@ -6,6 +6,7 @@ import Keyboard from './components/Keyboard'
 //import * as Clipboard from 'expo-clipboard'
 import { NAMES } from './names/namesList'
 import { VALID_NAMES } from './names/validNames'
+//import Animated, {SlideInDown, SlideInLeft, ZoomIn, FlipInEasyY} from 'react-native-reanimated'
 
 
 const NUMBER_OF_TRIES = 6
@@ -18,7 +19,8 @@ const randomChoice = Math.floor(Math.random() * NAMES.length)
 //const name = NAMES[randomChoice]
 
 export default function App() {
-  const [modalVisible, setModalVisible] = useState(false);
+  //const [modalVisible, setModalVisible] = useState(false);
+  const [showKeyboard, setShowKeyboard] = useState(true)
   const [alertVisible, setAlertVisible] = useState(false);
   const [winVisible, setWinVisible] = useState(false);
   const [againVisible, setAgainVisible] = useState(false);
@@ -39,12 +41,16 @@ export default function App() {
   const [word, setWord] = useState('')
 
   useEffect(() => {
-    function delayModalClose() {
-        setModalVisible(false)
+    // function delayModalClose() {
+    //     setModalVisible(false)
+    // }
+    function delayKeyboard() {
+      setShowKeyboard(true)
     }
     if (currentRow > 0) {
-      setTimeout(delayModalClose, 100);
+      //setTimeout(delayModalClose, 100);
       //setModalVisible(false)
+      setTimeout(delayKeyboard, 50);
       checkIfValid()
     }
   }, [currentRow])
@@ -158,12 +164,13 @@ export default function App() {
     }
 
     if (key === ENTER) {
-      setModalVisible(true)
-      setTimeout(delayIncrement, 50);
-      // if (currentCol === rows[0].length) {
-      //   setCurrentRow(currentRow + 1)
-      // }  
-      // return
+      //setModalVisible(true)
+      //setTimeout(delayIncrement, 50);
+      setShowKeyboard(false)
+      if (currentCol === rows[0].length) {
+        setCurrentRow(currentRow + 1)
+      }  
+      return
     }
     
     if (currentCol < rows[0].length) {
@@ -203,43 +210,75 @@ export default function App() {
   const yellowCaps = getAllLettersWithColor(colors.secondary)
   const greyCaps = getAllLettersWithColor(colors.darkgrey)
 
+  const getCellStyle = (i, j)  => [
+    styles.cell, 
+      {
+        borderColor: isCellActive(i, j) ? colors.grey : colors.darkgrey, 
+        backgroundColor: getCellBGColor(i, j)
+      }
+    ]
+
   return (
     <SafeAreaView style={styles.container}>
       {/* <StatusBar style="light" /> */}
-
       <Text style={styles.title}>NAMES GAME</Text>
-      
-      <ScrollView style={styles.map}>
-        {rows.map((row, i) => (
-          <View key={`row-${i}`} style={styles.row}>
-            {row.map((letter, j) => (
-              <View 
-                key={`cell-${i}-${j}`}
-                style={[
-                  styles.cell, 
-                  {
-                    borderColor: isCellActive(i, j) ? colors.grey : colors.darkgrey, 
-                    backgroundColor: getCellBGColor(i, j)
-                  }
-                ]}
-              >
-                <Text style={styles.cellText}>{letter.toUpperCase()}</Text>
-              </View>
-            ))}
-          </View>
-        ))}
-        
-      </ScrollView>
 
-      <Keyboard 
-        onKeyPressed={onKeyPressed} 
-        greenCaps={greenCaps} 
-        yellowCaps={yellowCaps} 
-        greyCaps={greyCaps} 
-      />
-      
-      <View style={styles.centeredView}>
-        <Modal
+
+      {
+        showKeyboard ? (
+          <SafeAreaView style={styles.box}>
+          <ScrollView 
+          style={styles.map}
+        >
+          {rows.map((row, i) => (
+            <View 
+              key={`row-${i}`} 
+              style={styles.row}
+              //entering={SlideInLeft.delay(i * 80)} 
+            >
+              {row.map((letter, j) => (
+                <>
+                  {i < currentRow && (
+                    <View 
+                      //entering={FlipInEasyY.delay(600 + j * 120)}
+                      key={`cell-color-${i}-${j}`}
+                      style={getCellStyle(i, j)}
+                    >
+                      <Text style={styles.cellText}>{letter.toUpperCase()}</Text>
+                    </View>
+                    )}
+                  {i === currentRow && !!letter && (
+                    <View 
+                      //entering={ZoomIn}
+                      key={`cell-active-${i}-${j}`}
+                      style={getCellStyle(i, j)}
+                    >
+                      <Text style={styles.cellText}>{letter.toUpperCase()}</Text>
+                    </View>
+                    )}
+                  {!letter && (
+                    <View 
+                      key={`cell-${i}-${j}`}
+                      style={getCellStyle(i, j)}
+                    >
+                      <Text style={styles.cellText}>{letter.toUpperCase()}</Text>
+                    </View>
+                  )}
+                </>
+                
+              ))}
+            </View>
+          ))}
+          
+        </ScrollView>
+        <Keyboard 
+          onKeyPressed={onKeyPressed} 
+          greenCaps={greenCaps} 
+          yellowCaps={yellowCaps} 
+          greyCaps={greyCaps} 
+        />
+        <View style={styles.centeredView}>
+       {/* <Modal
           animationType="none"
           transparent={true}
           visible={modalVisible}
@@ -251,22 +290,9 @@ export default function App() {
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
               <Text style={styles.modalText}></Text>
-              {/* <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
-              >
-                <Text style={styles.textStyle}>ok</Text>
-              </Pressable> */}
             </View>
           </View>
-        </Modal>
-        {/* <Pressable
-          style={[styles.button, styles.buttonOpen]}
-          onPress={() => setModalVisible(true)}
-        >
-          <Text style={styles.textStyle}>Show Modal</Text>
-        </Pressable> */}
-
+        </Modal> */}
 
         <Modal
           animationType="none"
@@ -291,19 +317,14 @@ export default function App() {
         </Modal>
         
 
-
         <Modal
           animationType="none"
           transparent={true}
           visible={winVisible}
-          // onRequestClose={() => {
-          //   Alert.alert("Modal has been closed.");
-          //   setWinVisible(!winVisible);
-          // }}
         >
           <View style={styles.centeredView}>
             <View style={styles.alertView}>
-              <Text style={styles.modalText}>Hurray! You Win!</Text>
+              <Text style={styles.modalText}>Hurray! You Won!</Text>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
                 onPress={() => restart()}
@@ -341,29 +362,52 @@ export default function App() {
 
       </View> 
 
+        </SafeAreaView>
+        ) : (
+          <SafeAreaView style={styles.container}></SafeAreaView>
+        )
+      }
+      
+      
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  box: {
+    flex: 1,
+    //backgroundColor: 'blue',
+    width: 'full',
+    height: 'full',
+    marginTop: -900
+  },
   container: {
     flex: 1,
     backgroundColor: colors.black,
+    width: 'full',
+    height: 'full',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   title: {
+    display: 'flex',
+    justifyContent: 'center',
+    //alignItems: 'center',
     color: colors.lightgrey,
     //color: 'teal',
-    fontSize: 32,
+    backgroundColor: colors.black,
+    width: 2700,
+    height: 1000,
+    fontSize: 50,
     fontWeight: 'bold',
     letterSpacing: 7,
-    marginTop: 50,
-    marginBottom: 2
+    marginBottom: 2,
+    marginTop: 50
   },
   
   map: {
     alignSelf: 'stretch',
-    marginVertical: 20
+    marginVertical: 20,
   },
   row: {
     alignSelf: 'stretch', 
@@ -391,11 +435,11 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   modalView: {
-    width: 1400,
-    height: 750,
+    width: 400,
+    height: 650,
     marginTop: 40,
     backgroundColor: colors.black,
     borderRadius: 20,
@@ -428,18 +472,19 @@ const styles = StyleSheet.create({
   textStyle: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: 25
   },
   modalText: {
-    fontSize: 20,
-    marginBottom: 15,
+    fontSize: 30,
+    marginBottom: 30,
     textAlign: "center"
   },
 
 
   alertView: {
-    width: 350,
-    height: 150,
+    width: 500,
+    height: 200,
     backgroundColor: colors.lightgrey,
     borderRadius: 20,
     padding: 35,
