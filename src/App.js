@@ -389,7 +389,7 @@ const styles = StyleSheet.create({
     //backgroundColor: 'blue',
     width: 'full',
     height: 'full',
-    marginTop: -1200
+    marginTop: -1000
   },
   container: {
     flex: 1,
