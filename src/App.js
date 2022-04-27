@@ -385,7 +385,7 @@ function getMarginTop() {
 
 function getMarginLeft() {
   if (screenWidth < 700) {
-      return -1100
+      return -1150
   }
   return 0
 }  
