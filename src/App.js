@@ -216,8 +216,9 @@ export default function App() {
         borderColor: isCellActive(i, j) ? colors.grey : colors.darkgrey, 
         backgroundColor: getCellBGColor(i, j)
       }
-    ]
+  ]
 
+  
   return (
     <SafeAreaView style={styles.container}>
       {/* <StatusBar style="light" /> */}
@@ -373,6 +374,15 @@ export default function App() {
   );
 }
 
+const screenWidth = Dimensions.get("window").width;
+
+function getMarginTop() {
+    if (screenWidth < 700) {
+        return -500
+    }
+    return 0
+}  
+
 const styles = StyleSheet.create({
   box: {
     flex: 1,
@@ -393,8 +403,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     //alignItems: 'center',
-    color: colors.lightgrey,
-    //color: 'teal',
+    //color: colors.lightgrey,
+    color: 'teal',
     backgroundColor: colors.black,
     width: 2700,
     height: 1000,
@@ -483,6 +493,7 @@ const styles = StyleSheet.create({
 
 
   alertView: {
+    marginTop: getMarginTop(),
     width: 500,
     height: 200,
     backgroundColor: colors.lightgrey,

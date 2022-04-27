@@ -42,7 +42,7 @@ export default StyleSheet.create({
     //width: 60,
     height: keyHeight - 4,
     //height: 60,
-    margin: 2,
+    margin: 3,
     borderRadius: 5,
     backgroundColor: colors.grey,
     justifyContent: "center",
