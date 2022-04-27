@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 //import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, Alert, Modal, Pressable } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, Alert, Modal, Pressable, Dimensions } from 'react-native';
 import {colors, CLEAR, ENTER, colorsToEmoji} from './constants'
 import Keyboard from './components/Keyboard'
 //import * as Clipboard from 'expo-clipboard'
@@ -373,6 +373,16 @@ export default function App() {
   );
 }
 
+const screenWidth = Dimensions.get("window").width;
+
+function getMarginTop() {
+  if (screenWidth < 700) {
+    return -600
+  } 
+  return 0
+}
+
+
 const styles = StyleSheet.create({
   box: {
     flex: 1,
@@ -484,6 +494,7 @@ const styles = StyleSheet.create({
   alertView: {
     width: 500,
     height: 200,
+    marginTop: getMarginTop(),
     backgroundColor: colors.lightgrey,
     borderRadius: 20,
     padding: 35,
