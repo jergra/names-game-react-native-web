@@ -398,7 +398,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.black,
     width: 2700,
     height: 1000,
-    fontSize: 50,
+    fontSize: 45,
     fontWeight: 'bold',
     letterSpacing: 7,
     marginBottom: 2,
