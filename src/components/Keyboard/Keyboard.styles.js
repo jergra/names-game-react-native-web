@@ -29,7 +29,7 @@ const keyHeight = keyWidth * 1.0;
 export default StyleSheet.create({
   keyboard: {
     alignSelf: "stretch",
-    marginTop: 30,
+    marginTop: 26,
     marginBottom: 100
   },
   row: {
@@ -51,6 +51,6 @@ export default StyleSheet.create({
   keyText: {
     color: colors.lightgrey,
     fontWeight: "bold",
-    fontSize: 23
+    fontSize: 22
   },
 });

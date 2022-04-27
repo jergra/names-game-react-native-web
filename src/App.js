@@ -401,8 +401,7 @@ const styles = StyleSheet.create({
     fontSize: 45,
     fontWeight: 'bold',
     letterSpacing: 7,
-    marginBottom: 2,
-    marginTop: 50
+    marginTop: 40
   },
   
   map: {
