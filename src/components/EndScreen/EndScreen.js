@@ -319,7 +319,7 @@ const screenWidth = Dimensions.get("window").width;
 
 const getFontSize = () => {
  if (screenWidth < 700) {
-     return 20
+     return 30
  }
  return 40
 }
