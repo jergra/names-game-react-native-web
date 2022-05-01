@@ -25,13 +25,13 @@ const Game = () => {
   //const [againVisible, setAgainVisible] = useState(false);
   
   const [name, setName] = useState(NAMES[randomChoice])
-  console.log('name:', name)
+  //console.log('name:', name)
 
   useEffect(() => {
     const choice = Math.floor(Math.random() * NAMES.length)
     const name = NAMES[choice]  
     setName(name)
-    console.log('name inside useEffect:', name)
+    //console.log('name inside useEffect:', name)
   }, [])
 
   const letters = name.split('')
