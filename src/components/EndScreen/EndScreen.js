@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, NativeModules } from 'react-native'
+import { View, Text, StyleSheet, Pressable, Dimensions, NativeModules } from 'react-native'
 import React, {useState, useEffect} from 'react'
 import {colors} from '../../constants'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -315,9 +315,18 @@ const EndScreen = ({won = false, name, currentRow}) => {
   )
 }
 
+const screenWidth = Dimensions.get("window").width;
+
+const getFontSize = () => {
+ if (screenWidth < 700) {
+     return 20
+ }
+ return 40
+}
+
 const styles = StyleSheet.create({
     title: {
-        fontSize: 40,
+        fontSize: getFontSize(),
         color: 'white',
         textAlign: 'center',
         marginVertical: 20,
