@@ -113,8 +113,8 @@ const EndScreen = ({won = false, name, currentRow}) => {
     }
 
     const readState = async () => {
-        const dataString = await AsyncStorage.getItem('UID87654')
-        console.log('dataString UID87654:', dataString);
+        const dataString = await AsyncStorage.getItem('UID76')
+        console.log('dataString UID76:', dataString);
         console.log('JSON.parse(dataString):', JSON.parse(dataString))
         const data = JSON.parse(dataString)
         console.log('data:', data)
@@ -122,8 +122,8 @@ const EndScreen = ({won = false, name, currentRow}) => {
         if (dataString === null && won === true) {
             guessesInfo.splice(currentRow - 1, 1, 1)
             setGuessesInfo(guessesInfo)
-            let UID87654_object = {games: [[true, currentRow, 1]]}
-            //AsyncStorage.setItem('UID87654', JSON.stringify(UID87654_object))
+            let UID76_object = {games: [[true, currentRow, 1]]}
+            //AsyncStorage.setItem('UID76', JSON.stringify(UID76_object))
             setTotalPlayed(1)
             setTotalWins(1)
             setWinRate(100)
@@ -131,8 +131,8 @@ const EndScreen = ({won = false, name, currentRow}) => {
             setMaxStreak(1)
         }
         if (dataString === null && won === false) {
-            let UID87654_object = {games: [[false, currentRow, 0]]}
-            //AsyncStorage.setItem('UID87654', JSON.stringify(UID87654_object))
+            let UID76_object = {games: [[false, currentRow, 0]]}
+            //AsyncStorage.setItem('UID76', JSON.stringify(UID76_object))
             setTotalPlayed(1)
         }
         
@@ -167,8 +167,8 @@ const EndScreen = ({won = false, name, currentRow}) => {
                 let previousMaxStreak = gamesArray[gamesArray.length - 1][2]
                 setMaxStreak(previousMaxStreak)
                 gamesArray.push([false, 7, previousMaxStreak])
-                let UID87654_object = {games: gamesArray}
-                //AsyncStorage.setItem('UID87654', JSON.stringify(UID87654_object))
+                let UID76_object = {games: gamesArray}
+                //AsyncStorage.setItem('UID76', JSON.stringify(UID76_object))
                 setCurrentStreak(0)
             }
 
@@ -223,22 +223,22 @@ const EndScreen = ({won = false, name, currentRow}) => {
                         if (currentMaxStreak === previousMaxStreak) {
                             setMaxStreak(previousMaxStreak + 1)
                             gamesArray.push([true, currentRow, previousMaxStreak + 1])
-                            let UID87654_object = {games: gamesArray}
-                            //AsyncStorage.setItem('UID87654', JSON.stringify(UID87654_object))
+                            let UID76_object = {games: gamesArray}
+                            //AsyncStorage.setItem('UID76', JSON.stringify(UID76_object))
                             break
                         } else {
                             setMaxStreak(previousMaxStreak)
                             gamesArray.push([true, currentRow, previousMaxStreak])
-                            let UID87654_object = {games: gamesArray}
-                            //AsyncStorage.setItem('UID87654', JSON.stringify(UID87654_object))
+                            let UID76_object = {games: gamesArray}
+                            //AsyncStorage.setItem('UID76', JSON.stringify(UID76_object))
                             break
                         }
                     }
                     if (i === 0) {
                         setMaxStreak(currentMaxStreak + 1)
                         gamesArray.push([true, currentRow, currentMaxStreak + 1])
-                        let UID87654_object = {games: gamesArray}
-                        //AsyncStorage.setItem('UID87654', JSON.stringify(UID87654_object))
+                        let UID76_object = {games: gamesArray}
+                        //AsyncStorage.setItem('UID76', JSON.stringify(UID76_object))
                     }
                 }
             }
