@@ -151,7 +151,7 @@ const EndScreen = ({won = false, name, currentRow}) => {
                         }
                     }
                     distribution.push(total)
-                    console.log('distribution:', distribution)
+                    //console.log('distribution:', distribution)
                 }
                 setGuessesInfo(distribution)
 
