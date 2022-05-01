@@ -16,13 +16,6 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-    // box: {
-    //     flex: 1,
-    //     //backgroundColor: 'blue',
-    //     width: 'full',
-    //     height: 'full',
-    //     marginTop: -960
-    //   },
       container: {
         flex: 1,
         backgroundColor: colors.black,
@@ -46,20 +39,5 @@ const styles = StyleSheet.create({
         paddingTop: 40,
         marginBottom: 80
       },
-
-//   container: {
-//     flex: 1,
-//     backgroundColor: colors.black,
-//     alignItems: 'center',
-//   },
-//   title: {
-//     color: colors.lightgrey,
-//     //color: 'lightgreen',
-//     fontSize: 32,
-//     fontWeight: 'bold',
-//     letterSpacing: 7,
-//     marginTop: 50,
-//     marginBottom: 2
-//   },
   
 });

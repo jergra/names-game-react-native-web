@@ -40,6 +40,9 @@ deployed:
         Use the Expo Go app to read the QR code at:
         https://expo.dev/@jergra43/names-game-react-native
 
+
+Note: clearing browser cache will clear AsyncStorage.
+
 update:
     git add .
     git commit -m "message"
