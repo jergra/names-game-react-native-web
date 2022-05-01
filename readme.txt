@@ -1,3 +1,9 @@
+Notice how in EndScreen at lines 145 and 176 we needed to 
+change const to var, yet it works in the mobile version.
+does 'let' work instead of 'var'? and try these two in the
+mobile version as well to see if they work.
+
+
 April 23, 2022
 
 C:\dev\names-game-react-native-web
@@ -15,7 +21,8 @@ I have adjusted the mobile-app code from:
     https://github.com/jergra/names-game-react-native
     C:\dev\names-game-react-native
     
-so that it now works as a website.
+so that it now works as a website. The animations are not being
+used because react-native-reanimated is not compatible with react-native-web.
 
 In retrospect, if the aim is to use react-native-web to have a website,
 it would be simpler and better to build it from scratch, 
