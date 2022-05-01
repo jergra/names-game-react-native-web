@@ -312,18 +312,9 @@ const EndScreen = ({won = false, name, currentRow}) => {
   )
 }
 
-const screenWidth = Dimensions.get("window").width;
-
-const getFontSize = () => {
- if (screenWidth < 700) {
-     return 30
- }
- return 40
-}
-
 const styles = StyleSheet.create({
     title: {
-        fontSize: getFontSize(),
+        fontSize: 40,
         color: 'white',
         textAlign: 'center',
         marginTop: 20,
